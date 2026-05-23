@@ -333,9 +333,10 @@ class TestConvenienceFunctions:
 class TestPipeline:
     """Tests for the data processing pipeline using mocked database."""
 
+    @pytest.mark.asyncio
     @patch("data_processing.pipeline.raw_posts_collection")
     @patch("data_processing.pipeline.cleaned_posts_collection")
-    def test_process_single_post_not_found(self, mock_cleaned, mock_raw):
+    async def test_process_single_post_not_found(self, mock_cleaned, mock_raw):
         """process_single_post should return None if post not found."""
         mock_raw.find_one = AsyncMock(return_value=None)
 
@@ -344,9 +345,10 @@ class TestPipeline:
         result = await process_single_post("nonexistent_id")
         assert result is None
 
+    @pytest.mark.asyncio
     @patch("data_processing.pipeline.raw_posts_collection")
     @patch("data_processing.pipeline.cleaned_posts_collection")
-    def test_process_single_post_success(self, mock_cleaned, mock_raw):
+    async def test_process_single_post_success(self, mock_cleaned, mock_raw):
         """process_single_post should process and return a cleaned document."""
         mock_post = {
             "id": "test_post_1",
