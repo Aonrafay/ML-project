@@ -4,6 +4,7 @@ Covers TextPreprocessor, LanguageDetector, and the processing pipeline
 using mocks for database operations where needed.
 """
 
+import asyncio
 import pytest
 from unittest.mock import MagicMock, AsyncMock, patch
 from data_processing.preprocessor import TextPreprocessor
