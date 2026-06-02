@@ -1,10 +1,9 @@
 import httpx
 from backend.app.core.config import get_settings
 
-settings = get_settings()
-
 
 def google_fact_check(claim: str) -> dict:
+    settings = get_settings()
     if not settings.google_fact_check_api_key:
         return {"error": "Google Fact Check API key not configured"}
 

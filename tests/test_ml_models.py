@@ -26,6 +26,14 @@ from ml_models.fake_news_detector.model import (
     classify_text,
     classify_texts,
 )
+from ml_models.topic_modeler.model import (
+    TopicModeler,
+    DEFAULT_MIN_TOPIC_SIZE,
+    DEFAULT_TOP_N_WORDS,
+    analyze_topics,
+    get_topic_overview,
+    detect_topic_trends,
+)
 
 
 # ─── SentimentAnalyzer Tests ──────────────────────────────────────────────

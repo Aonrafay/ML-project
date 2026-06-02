@@ -1,10 +1,9 @@
 import httpx
 from backend.app.core.config import get_settings
 
-settings = get_settings()
-
 
 def claimbuster_check(text: str) -> dict:
+    settings = get_settings()
     if not settings.claimbuster_api_key:
         return {"error": "ClaimBuster API key not configured"}
 
